@@ -1,0 +1,114 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../node_modules/.prisma/client"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  ADMIN
+  CLIENT
+}
+
+enum AttendanceStatus {
+  yes
+  no
+  maybe
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  role      Role     @default(CLIENT)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  wedding   Wedding?
+}
+
+model Wedding {
+  id          Int      @id @default(autoincrement())
+  slug        String   @unique
+  coupleName  String
+  monogram    String?
+  heroMessage String?
+  eventDate   DateTime
+
+  // Ceremony venue
+  ceremonyVenueName    String?
+  ceremonyVenueAddress String?
+  ceremonyTime         String?
+
+  // Reception venue
+  venueName    String
+  venueAddress String
+  receptionTime String?
+  dressCode    String
+  mapUrl       String
+
+  // Groom
+  groomName        String?
+  groomFullName    String?
+  groomDescription String?
+  groomImageUrl    String?
+  groomParents     String?
+  groomBank        String?
+  groomBankAccount String?
+  groomBankName    String?
+
+  // Bride
+  brideName        String?
+  brideFullName    String?
+  brideDescription String?
+  brideImageUrl    String?
+  brideParents     String?
+  brideBank        String?
+  brideBankAccount String?
+  brideBankName    String?
+
+  // Media
+  videoId String?
+
+  isPublished Boolean  @default(false)
+  ownerId     Int      @unique
+  owner       User     @relation(fields: [ownerId], references: [id])
+  rsvps       Rsvp[]
+  gallery     GalleryPhoto[]
+  loveStory   LoveStoryEvent[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model GalleryPhoto {
+  id        Int     @id @default(autoincrement())
+  imageUrl  String
+  alt       String?
+  order     Int     @default(0)
+  weddingId Int
+  wedding   Wedding @relation(fields: [weddingId], references: [id])
+}
+
+model LoveStoryEvent {
+  id          Int     @id @default(autoincrement())
+  dateLabel   String
+  title       String
+  description String
+  order       Int     @default(0)
+  weddingId   Int
+  wedding     Wedding @relation(fields: [weddingId], references: [id])
+}
+
+model Rsvp {
+  id         Int              @id @default(autoincrement())
+  requestId  String           @unique @default(cuid())
+  fullName   String
+  phone      String
+  attending  AttendanceStatus
+  guestCount Int
+  message    String?
+  weddingId  Int
+  wedding    Wedding          @relation(fields: [weddingId], references: [id])
+  createdAt  DateTime         @default(now())
+}

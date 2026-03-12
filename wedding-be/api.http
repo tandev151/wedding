@@ -1,0 +1,240 @@
+### Variables
+@baseUrl = http://localhost:3000
+@adminToken = {{adminLogin.response.body.access_token}}
+@clientToken = {{clientLogin.response.body.access_token}}
+
+# ============================================================
+# AUTH
+# ============================================================
+
+### Login as ADMIN
+# @name adminLogin
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@wedding.vn",
+  "password": "admin123"
+}
+
+### Login as CLIENT
+# @name clientLogin
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "phat@wedding.vn",
+  "password": "client123"
+}
+
+# ============================================================
+# PUBLIC
+# ============================================================
+
+### GET event summary
+GET {{baseUrl}}/v1/event-summary?slug=phat-thu-2026
+
+### POST RSVP (public)
+POST {{baseUrl}}/v1/rsvp
+Content-Type: application/json
+
+{
+  "weddingSlug": "phat-thu-2026",
+  "fullName": "Trần Thị Bích 2",
+  "phone": "0912345678",
+  "attending": "yes",
+  "guestCount": 2,
+  "message": "Chúc mừng hạnh phúc!"
+}
+
+# ============================================================
+# ADMIN — paste access_token from adminLogin above
+# ============================================================
+
+### GET all users
+GET {{baseUrl}}/users
+Authorization: Bearer {{adminToken}}
+
+### POST create user
+POST {{baseUrl}}/users
+Authorization: Bearer {{adminToken}}
+Content-Type: application/json
+
+{
+  "email": "newclient@wedding.vn",
+  "password": "newpass123",
+  "role": "CLIENT"
+}
+
+### PATCH update user (change id as needed)
+PATCH {{baseUrl}}/users/2
+Authorization: Bearer {{adminToken}}
+Content-Type: application/json
+
+{
+  "email": "phat-updated@wedding.vn"
+}
+
+### DELETE user (change id as needed)
+DELETE {{baseUrl}}/users/3
+Authorization: Bearer {{adminToken}}
+
+### POST create wedding (ADMIN creates for client)
+POST {{baseUrl}}/weddings
+Authorization: Bearer {{adminToken}}
+Content-Type: application/json
+
+{
+  "slug": "lan-hung-2026",
+  "coupleName": "Lan & Hùng",
+  "eventDate": "2026-09-20T09:00:00Z",
+  "venueName": "Nhà hàng Hoa Viên",
+  "venueAddress": "456 Lê Lợi, Quận 3, TP.HCM",
+  "dressCode": "Formal - Tông trắng và xanh navy",
+  "mapUrl": "https://maps.google.com/?q=10.7800,106.6950",
+  "isPublished": true,
+  "ownerId": 3
+}
+
+### GET all weddings
+GET {{baseUrl}}/weddings
+Authorization: Bearer {{adminToken}}
+
+### GET wedding by id
+GET {{baseUrl}}/weddings/1
+Authorization: Bearer {{adminToken}}
+
+### PATCH wedding by id
+PATCH {{baseUrl}}/weddings/1
+Authorization: Bearer {{adminToken}}
+Content-Type: application/json
+
+{
+  "dressCode": "Black Tie"
+}
+
+### GET RSVPs of wedding by id
+GET {{baseUrl}}/weddings/1/rsvps
+Authorization: Bearer {{adminToken}}
+
+### Export RSVPs as CSV (ADMIN)
+GET {{baseUrl}}/weddings/1/rsvps/export
+Authorization: Bearer {{adminToken}}
+
+### PATCH publish wedding
+PATCH {{baseUrl}}/weddings/1/publish
+Authorization: Bearer {{adminToken}}
+
+### DELETE unpublish wedding
+DELETE {{baseUrl}}/weddings/1/publish
+Authorization: Bearer {{adminToken}}
+
+### GET admin stats
+GET {{baseUrl}}/admin/stats
+Authorization: Bearer {{adminToken}}
+
+# ============================================================
+# CLIENT — paste access_token from clientLogin above
+# ============================================================
+
+### GET my wedding
+GET {{baseUrl}}/weddings/me
+Authorization: Bearer {{clientToken}}
+
+### PATCH my wedding
+PATCH {{baseUrl}}/weddings/me
+Authorization: Bearer {{clientToken}}
+Content-Type: application/json
+
+{
+  "dressCode": "Smart Casual - Tông hồng pastel"
+}
+
+### GET my RSVPs
+GET {{baseUrl}}/weddings/me/rsvps
+Authorization: Bearer {{clientToken}}
+
+### Export my RSVPs as CSV (CLIENT)
+GET {{baseUrl}}/weddings/me/rsvps/export
+Authorization: Bearer {{clientToken}}
+
+# ============================================================
+# CLIENT — Gallery
+# ============================================================
+
+### GET my gallery
+GET {{baseUrl}}/weddings/me/gallery
+Authorization: Bearer {{clientToken}}
+
+### POST add photo to gallery
+POST {{baseUrl}}/weddings/me/gallery
+Authorization: Bearer {{clientToken}}
+Content-Type: application/json
+
+{
+  "imageUrl": "https://picsum.photos/seed/wedding1/800/600",
+  "alt": "Ảnh cưới 1",
+  "order": 1
+}
+
+### PATCH update gallery photo (change id as needed)
+PATCH {{baseUrl}}/weddings/me/gallery/1
+Authorization: Bearer {{clientToken}}
+Content-Type: application/json
+
+{
+  "alt": "Ảnh cưới đã cập nhật",
+  "order": 2
+}
+
+### DELETE gallery photo (change id as needed)
+DELETE {{baseUrl}}/weddings/me/gallery/1
+Authorization: Bearer {{clientToken}}
+
+# ============================================================
+# CLIENT — Love Story
+# ============================================================
+
+### GET my love story
+GET {{baseUrl}}/weddings/me/love-story
+Authorization: Bearer {{clientToken}}
+
+### POST send test mail (dev)
+POST {{baseUrl}}/mail/send
+Authorization: Bearer {{adminToken}}
+Content-Type: application/json
+
+{
+  "email": "tanlee15.personal@gmail.com",
+  "templateType": "saveDate",
+  "payload": {
+    "coupleName": "Tấn Bảo & Anh Thư",
+    "weddingDate": "24/10/2026 18:30",
+    "rsvpSummaryUrl": "https://wedding.local/rsvp"
+  }
+}
+
+### POST add love story event
+POST {{baseUrl}}/weddings/me/love-story
+Authorization: Bearer {{clientToken}}
+Content-Type: application/json
+
+{
+  "dateLabel": "Tháng 3, 2023",
+  "title": "Lần đầu gặp nhau",
+  "description": "Chúng tôi gặp nhau tại một buổi tiệc bạn bè...",
+  "order": 1
+}
+
+### PATCH update love story event (change id as needed)
+PATCH {{baseUrl}}/weddings/me/love-story/1
+Authorization: Bearer {{clientToken}}
+Content-Type: application/json
+
+{
+  "description": "Nội dung đã được cập nhật"
+}
+
+### DELETE love story event (change id as needed)
+DELETE {{baseUrl}}/weddings/me/love-story/1
+Authorization: Bearer {{clientToken}}

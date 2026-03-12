@@ -1,0 +1,34 @@
+export declare class CreateWeddingDto {
+    slug: string;
+    coupleName: string;
+    monogram?: string;
+    heroMessage?: string;
+    eventDate: string;
+    ceremonyVenueName?: string;
+    ceremonyVenueAddress?: string;
+    ceremonyTime?: string;
+    venueName: string;
+    venueAddress: string;
+    receptionTime?: string;
+    dressCode: string;
+    mapUrl: string;
+    groomName?: string;
+    groomFullName?: string;
+    groomDescription?: string;
+    groomImageUrl?: string;
+    groomParents?: string;
+    groomBank?: string;
+    groomBankAccount?: string;
+    groomBankName?: string;
+    brideName?: string;
+    brideFullName?: string;
+    brideDescription?: string;
+    brideImageUrl?: string;
+    brideParents?: string;
+    brideBank?: string;
+    brideBankAccount?: string;
+    brideBankName?: string;
+    videoId?: string;
+    isPublished?: boolean;
+    ownerId: number;
+}
