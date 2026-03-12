@@ -1,0 +1,62 @@
+:root {
+  /* Fonts */
+  --font-sans: "Inter", -apple-system, system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-script: "Dancing Script", cursive;
+
+  /* Color System */
+  --c-bg: #f9f7f4;
+  --c-surface: #ffffff;
+  --c-surface-alt: #f5f2ec;
+  --c-text: #1a1714;
+  --c-text-muted: #6a6059;
+  --c-text-light: #9c918a;
+  --c-border: #e5ddd3;
+  --c-border-light: #f0ebe4;
+  --c-accent: #c4a882;
+  --c-dark: #1a1714;
+  --c-error: #b02020;
+  --c-success: #2d7a4f;
+
+  /* Spacing (4px base) */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.25rem;
+  --sp-6: 1.5rem;
+  --sp-7: 1.75rem;
+  --sp-8: 2rem;
+  --sp-10: 2.5rem;
+  --sp-12: 3rem;
+  --sp-16: 4rem;
+  --sp-20: 5rem;
+  --sp-24: 6rem;
+
+  /* Layout */
+  --container-w: 900px;
+  --section-py: 5rem;
+
+  /* Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 6px rgba(26, 23, 20, 0.06);
+  --shadow-md: 0 4px 20px rgba(26, 23, 20, 0.08);
+  --shadow-lg: 0 12px 40px rgba(26, 23, 20, 0.12);
+
+  /* Transitions */
+  --transition: 220ms ease;
+
+  /* Legacy aliases (keep components from breaking) */
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --color-error: var(--c-error);
+  --color-success: var(--c-success);
+  --space-3: var(--sp-3);
+  --space-6: var(--sp-6);
+}

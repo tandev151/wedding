@@ -1,0 +1,141 @@
+.moments-section {
+  background: var(--c-surface-alt);
+  padding: var(--sp-20) 0;
+}
+
+/* Mosaic grid — 6 items, 3-col bento layout */
+.moments-mosaic {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-10);
+}
+
+.moments-item {
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--c-border-light);
+}
+
+.moments-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 300ms ease;
+}
+
+.moments-item:hover img {
+  transform: scale(1.04);
+}
+
+/* Mosaic spans */
+.moments-item--1 {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+
+.moments-item--1 img {
+  aspect-ratio: 4 / 5;
+}
+
+.moments-item--2 {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.moments-item--2 img {
+  aspect-ratio: 4 / 3;
+}
+
+.moments-item--3 {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.moments-item--3 img {
+  aspect-ratio: 4 / 3;
+}
+
+.moments-item--4 {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.moments-item--4 img {
+  aspect-ratio: 4 / 3;
+}
+
+.moments-item--5 {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.moments-item--5 img {
+  aspect-ratio: 4 / 3;
+}
+
+.moments-item--6 {
+  grid-column: 1 / 4;
+  grid-row: 3;
+}
+
+.moments-item--6 img {
+  aspect-ratio: 21 / 7;
+}
+
+/* Quote */
+.moments-quote {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 46ch;
+  padding: var(--sp-8) var(--sp-6);
+  border: 1px solid var(--c-border-light);
+  border-radius: var(--radius-lg);
+  background: var(--c-surface);
+}
+
+.moments-quote p {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--c-text-muted);
+  line-height: 1.7;
+  margin-bottom: var(--sp-3);
+}
+
+.moments-quote cite {
+  font-size: 0.78rem;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--c-text-light);
+  text-transform: uppercase;
+}
+
+/* Mobile: simpler 2-col grid */
+@media (max-width: 600px) {
+  .moments-mosaic {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .moments-item--1 {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .moments-item--1 img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .moments-item--6 {
+    grid-column: 1 / 3;
+    grid-row: auto;
+  }
+
+  .moments-item--6 img {
+    aspect-ratio: 16 / 7;
+  }
+}

@@ -1,0 +1,243 @@
+.hp-shell {
+  min-height: 100vh;
+  background: var(--c-bg);
+  color: var(--c-text);
+  font-family: var(--font-sans);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Nav */
+.hp-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-4) var(--sp-8);
+  border-bottom: 1px solid var(--c-border);
+}
+
+.hp-logo {
+  font-family: var(--font-script);
+  font-size: 1.5rem;
+  color: var(--c-accent);
+}
+
+.hp-nav-cta {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--c-accent);
+  text-decoration: none;
+  border: 1px solid var(--c-accent);
+  padding: var(--sp-2) var(--sp-4);
+  border-radius: 999px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.hp-nav-cta:hover {
+  background: var(--c-accent);
+  color: #fff;
+}
+
+/* Hero */
+.hp-hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--sp-20) var(--sp-6) var(--sp-16);
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.hp-eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-text-muted);
+  margin-bottom: var(--sp-4);
+}
+
+.hp-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  line-height: 1.2;
+  margin-bottom: var(--sp-5);
+  color: var(--c-text);
+}
+
+.hp-accent {
+  color: var(--c-accent);
+}
+
+.hp-sub {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--c-text-muted);
+  margin-bottom: var(--sp-8);
+  max-width: 520px;
+}
+
+.hp-hero .hp-btn-primary {
+  padding: var(--sp-4) var(--sp-10);
+  font-size: 1rem;
+  white-space: normal;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .hp-hero .hp-btn-primary {
+    width: 100%;
+    padding: var(--sp-4) var(--sp-6);
+  }
+}
+
+/* Features */
+.hp-features {
+  background: var(--c-surface);
+  padding: var(--sp-16) var(--sp-6);
+}
+
+.hp-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--sp-6);
+  max-width: var(--container-w);
+  margin: 0 auto;
+}
+
+.hp-feature-card {
+  background: var(--c-bg);
+  border: 1px solid var(--c-border);
+  border-radius: 12px;
+  padding: var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.hp-feature-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--c-surface-alt);
+  border-radius: 10px;
+  color: var(--c-accent);
+  flex-shrink: 0;
+}
+
+.hp-feature-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.hp-feature-title {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: var(--c-text);
+  margin: 0;
+}
+
+.hp-feature-desc {
+  font-size: 0.9rem;
+  color: var(--c-text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* CTA */
+.hp-cta {
+  padding: var(--sp-20) var(--sp-6);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hp-cta-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  margin-bottom: var(--sp-3);
+  color: var(--c-text);
+}
+
+.hp-cta-sub {
+  color: var(--c-text-muted);
+  margin-bottom: var(--sp-8);
+}
+
+.hp-form {
+  display: flex;
+  gap: var(--sp-3);
+  width: 100%;
+  max-width: 480px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hp-input {
+  flex: 1;
+  min-width: 200px;
+  padding: var(--sp-3) var(--sp-4);
+  border: 1px solid var(--c-border);
+  border-radius: 8px;
+  background: var(--c-surface);
+  color: var(--c-text);
+  font-family: inherit;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.hp-input:focus {
+  border-color: var(--c-accent);
+}
+
+.hp-form .hp-btn-primary {
+  flex-shrink: 0;
+  padding: var(--sp-3) var(--sp-5);
+}
+
+@media (max-width: 480px) {
+  .hp-form .hp-btn-primary {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Shared button */
+.hp-btn-primary {
+  display: inline-block;
+  padding: var(--sp-3) var(--sp-5);
+  background: var(--c-accent);
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.5;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.hp-btn-primary:hover {
+  opacity: 0.88;
+}
+
+/* Footer */
+.hp-footer {
+  padding: var(--sp-6);
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--c-text-muted);
+  border-top: 1px solid var(--c-border);
+}

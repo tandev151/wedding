@@ -1,0 +1,137 @@
+.gift-section {
+  background: var(--c-bg);
+  padding: var(--sp-20) 0;
+}
+
+.gift-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.gift-icon {
+  color: var(--c-text-light);
+}
+
+.gift-desc {
+  font-size: 0.9rem;
+  color: var(--c-text-muted);
+  line-height: 1.75;
+  max-width: 52ch;
+  margin: 0 auto var(--sp-10);
+}
+
+/* Bank cards */
+.gift-banks {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-6);
+  width: 100%;
+  max-width: 640px;
+  text-align: left;
+}
+
+.gift-person-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-text-light);
+  margin-bottom: var(--sp-2);
+}
+
+.gift-bank-card {
+  padding: var(--sp-5) var(--sp-6);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-lg);
+  background: var(--c-surface);
+}
+
+.gift-bank-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--sp-3);
+}
+
+.gift-bank-name {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-text);
+}
+
+.gift-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+  padding: 0.35rem 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--c-text-muted);
+  background: var(--c-bg);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: color var(--transition), border-color var(--transition);
+}
+
+.gift-copy-btn:hover {
+  color: var(--c-text);
+  border-color: var(--c-text);
+}
+
+.gift-account-number {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--c-text);
+  letter-spacing: 0.06em;
+  margin-bottom: var(--sp-1);
+}
+
+.gift-account-holder {
+  font-size: 0.8rem;
+  color: var(--c-text-muted);
+  letter-spacing: 0.06em;
+}
+
+/* Note */
+.gift-note {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  max-width: 500px;
+  margin-top: var(--sp-8);
+  padding: var(--sp-4) var(--sp-5);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border-light);
+  border-radius: var(--radius-lg);
+  text-align: left;
+}
+
+.gift-note svg {
+  flex-shrink: 0;
+  color: var(--c-text-light);
+  margin-top: 2px;
+}
+
+.gift-note span {
+  font-size: 0.85rem;
+  color: var(--c-text-muted);
+  line-height: 1.65;
+}
+
+.gift-note em {
+  font-style: normal;
+  color: var(--c-text);
+  font-weight: 500;
+}
+
+@media (min-width: 600px) {
+  .gift-banks {
+    grid-template-columns: 1fr 1fr;
+  }
+}

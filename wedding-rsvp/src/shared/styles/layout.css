@@ -1,0 +1,63 @@
+.page-shell {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--c-bg);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-w);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Legacy — used by App.css */
+.surface-card {
+  background: var(--c-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-6);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Shared section header pattern */
+.section-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  justify-content: center;
+  margin-bottom: var(--sp-3);
+}
+
+.section-eyebrow-line {
+  flex: 1;
+  max-width: 60px;
+  height: 1px;
+  background: var(--c-border);
+}
+
+.section-eyebrow-text {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--c-text-light);
+}
+
+.section-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 600;
+  color: var(--c-text);
+  text-align: center;
+  margin: 0 0 var(--sp-10);
+  line-height: 1.25;
+}
+
+/* Floral divider used across sections */
+.floral-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--sp-8) auto;
+}

@@ -1,0 +1,127 @@
+.footer {
+  background: var(--c-surface);
+  border-top: 1px solid var(--c-border-light);
+  padding: var(--sp-16) 0 var(--sp-8);
+  text-align: center;
+}
+
+/* Monogram */
+.footer-monogram-wrap {
+  margin-bottom: var(--sp-4);
+}
+
+.footer-monogram {
+  font-family: var(--font-script);
+  font-size: clamp(3.5rem, 8vw, 5.5rem);
+  font-weight: 700;
+  color: var(--c-text);
+  line-height: 1;
+  letter-spacing: 0.05em;
+}
+
+.footer-tagline {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-text-light);
+  margin-bottom: var(--sp-12);
+}
+
+/* Couple */
+.footer-couple {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-8);
+  margin-bottom: var(--sp-12);
+}
+
+.footer-person {
+  max-width: 220px;
+}
+
+.footer-person--groom {
+  text-align: right;
+}
+
+.footer-person--bride {
+  text-align: left;
+}
+
+.footer-person-role {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  margin-bottom: var(--sp-1);
+}
+
+.footer-person-name {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--c-text);
+  margin-bottom: var(--sp-1);
+}
+
+.footer-person-full {
+  font-size: 0.8rem;
+  color: var(--c-text-muted);
+  margin-bottom: var(--sp-2);
+}
+
+.footer-person-date {
+  font-size: 0.75rem;
+  color: var(--c-text-light);
+  line-height: 1.6;
+}
+
+/* Vertical divider between couple */
+.footer-divider-vert {
+  width: 1px;
+  height: 80px;
+  background: var(--c-border);
+  flex-shrink: 0;
+}
+
+/* Floral */
+.footer-floral {
+  display: block;
+  margin: 0 auto var(--sp-8);
+}
+
+/* Bottom */
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-4);
+  padding-top: var(--sp-6);
+  border-top: 1px solid var(--c-border-light);
+}
+
+.footer-copyright,
+.footer-made {
+  font-size: 0.78rem;
+  color: var(--c-text-light);
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 500px) {
+  .footer-couple {
+    flex-direction: column;
+    gap: var(--sp-6);
+  }
+
+  .footer-divider-vert {
+    width: 60px;
+    height: 1px;
+  }
+
+  .footer-person--groom,
+  .footer-person--bride {
+    text-align: center;
+  }
+}

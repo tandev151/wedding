@@ -1,0 +1,129 @@
+.ls-section {
+  background: var(--c-surface);
+  padding: var(--sp-20) 0;
+}
+
+.ls-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: var(--sp-16);
+}
+
+.ls-icon {
+  color: var(--c-text-light);
+  margin-bottom: var(--sp-4);
+}
+
+/* Timeline container */
+.ls-timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-10);
+}
+
+/* Center vertical line */
+.ls-line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--c-border) 10%, var(--c-border) 90%, transparent);
+  pointer-events: none;
+}
+
+/* Each row */
+.ls-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Card on left side */
+.ls-row--left {
+  justify-content: flex-start;
+  padding-right: calc(50% + var(--sp-10));
+}
+
+/* Card on right side */
+.ls-row--right {
+  justify-content: flex-end;
+  padding-left: calc(50% + var(--sp-10));
+}
+
+/* Dot on the center line */
+.ls-dot {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--c-border);
+  background: var(--c-surface);
+  z-index: 1;
+}
+
+.ls-row--right .ls-dot {
+  background: var(--c-accent);
+  border-color: var(--c-accent);
+}
+
+/* Card */
+.ls-card {
+  padding: var(--sp-5) var(--sp-6);
+  border: 1px solid var(--c-border-light);
+  border-radius: var(--radius-lg);
+  background: var(--c-bg);
+  max-width: 320px;
+  width: 100%;
+}
+
+.ls-card-date {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  margin-bottom: var(--sp-2);
+}
+
+.ls-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--c-text);
+  margin-bottom: var(--sp-3);
+}
+
+.ls-card-desc {
+  font-size: 0.875rem;
+  color: var(--c-text-muted);
+  line-height: 1.7;
+}
+
+/* Mobile: single column */
+@media (max-width: 700px) {
+  .ls-line {
+    left: 1rem;
+  }
+
+  .ls-row--left,
+  .ls-row--right {
+    padding-left: var(--sp-10);
+    padding-right: 0;
+    justify-content: flex-start;
+  }
+
+  .ls-dot {
+    left: 1rem;
+  }
+
+  .ls-card {
+    max-width: 100%;
+  }
+}
